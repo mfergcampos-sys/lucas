@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Que no te falten las lucas — taller online con Fer</title>
+<meta name="description" content="Taller online en vivo. En menos de 2 horas ordenas tus números para saber cuánto necesitas, qué puedes ajustar y cómo hacer espacio a fin de mes. Lunes 2 de noviembre, 20:00 hrs.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Que no te falten las lucas">
+<meta property="og:description" content="En menos de 2 horas ordenas tus números y armas tu presupuesto. Lunes 2 de noviembre, 20:00 hrs, en vivo por Zoom.">
+<meta property="og:image" content="https://mfergcampos-sys.github.io/lucas/img/fer-hero.jpg">
+<meta property="og:url" content="https://mfergcampos-sys.github.io/lucas/">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+
+<!--
+  ┌───────────────────────────────────────────────────────────────────┐
+  │  EL LINK DE PAGO                                                  │
+  │  Busca en este archivo:  LINK-DE-PAGO-FLYCREW                     │
+  │  Aparece 2 veces (el botón de la caja de precio y el del final).  │
+  │  Reemplaza las 2 por el link del checkout de Flycrew.             │
+  └───────────────────────────────────────────────────────────────────┘
+  LA FOTO va en la carpeta img/ con este nombre exacto:  fer-hero.jpg
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Karla:wght@400;500;700&family=Caveat:wght@500;600&display=swap">
+
+<style>
+  /* Paleta de marca de Fer — una sola atmósfera, a propósito. */
+  :root {
+    color-scheme: light;
+    --crema:        #FAF6F2;
+    --rosa:         #F5DDE3;
+    --rosa-suave:   #FBEEF1;
+    --vainilla:     #FFF0B8;
+    --tinta:        #392D31;
+    --tinta-suave:  #7C6A70;
+    --acento:       #A74F6E;
+    --acento-osc:   #8C3F5B;
+    --papel:        #FFFFFF;
+    --linea:        #E7D9DD;
+
+    --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --texto:   "Karla", "Helvetica Neue", Arial, sans-serif;
+    --mano:    "Caveat", "Bradley Hand", cursive;
+
+    --gutter: 20px;
+    --ancho-texto: 660px;
+    --ancho-ancho: 1000px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--crema);
+    color: var(--tinta);
+    font-family: var(--texto);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  .banda { padding-block: 76px; padding-inline: var(--gutter); }
+  .banda--crema  { background: var(--crema); }
+  .banda--rosa   { background: var(--rosa-suave); }
+  .banda--papel  { background: var(--papel); }
+  .banda--tinta  { background: var(--tinta); color: var(--crema); }
+
+  .envase       { max-width: var(--ancho-texto); margin-inline: auto; }
+  .envase--ancho{ max-width: var(--ancho-ancho); margin-inline: auto; }
+
+  h1, h2, h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    line-height: 1.12;
+    text-wrap: balance;
+    margin: 0;
+  }
+  h1 { font-size: clamp(2.4rem, 8vw, 4rem); letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.9rem, 5vw, 2.9rem); letter-spacing: -0.015em; }
+  h3 { font-size: 1.12rem; letter-spacing: -0.005em; }
+  p  { margin: 0 0 1em; }
+  p:last-child { margin-bottom: 0; }
+
+  .kicker {
+    font-family: var(--texto);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--acento);
+    margin: 0 0 18px;
+  }
+
+  .marca {
+    background: linear-gradient(transparent 58%, var(--vainilla) 58%, var(--vainilla) 94%, transparent 94%);
+    padding-inline: 2px;
+  }
+
+  .bajada { font-size: 1.16rem; color: var(--tinta-suave); max-width: 36em; }
+
+  /* ---- barra de datos ---- */
+  .datos {
+    display: flex; flex-wrap: wrap; gap: 10px 26px;
+    padding: 0; margin: 28px 0 0; list-style: none;
+    font-size: 0.93rem; font-weight: 500;
+  }
+  .datos li { display: flex; align-items: center; gap: 9px; }
+  .datos li::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--acento); flex: none;
+  }
+
+  /* ---- botón ---- */
+  .cta {
+    display: inline-block;
+    background: var(--acento);
+    color: var(--crema);
+    font-family: var(--texto);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 19px 38px;
+    border-radius: 10px;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .cta:hover { background: var(--acento-osc); transform: translateY(-1px); }
+  .cta:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; }
+  .bloque-cta { margin-top: 32px; }
+  .chica { font-size: 0.86rem; color: var(--tinta-suave); margin-top: 14px; }
+
+  /* ---- hero ---- */
+  .hero { padding-top: 64px; padding-bottom: 64px; }
+  .hero-grid { display: grid; gap: 36px; align-items: stretch; }
+  .hero-foto {
+    background: var(--rosa);
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 320px;
+  }
+  .hero-foto img { width: 100%; height: 100%; object-fit: cover; }
+  @media (min-width: 860px) {
+    .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 56px; }
+    .hero-foto { min-height: 100%; }
+  }
+
+  /* ---- sección de dolor, a dos columnas ---- */
+  .dos-col { display: grid; gap: 40px; }
+  @media (min-width: 860px) { .dos-col { grid-template-columns: 1fr 1fr; gap: 64px; } }
+
+  .lista-lineas { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--linea); }
+  .lista-lineas li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .remate {
+    margin-top: 64px; padding-top: 48px;
+    border-top: 1px solid var(--linea);
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 4.6vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.16;
+    letter-spacing: -0.015em;
+  }
+  .remate span { color: var(--acento); display: block; }
+
+  /* ---- los tres pasos ---- */
+  .pasos3 { display: grid; gap: 34px; margin-top: 46px; }
+  @media (min-width: 800px) { .pasos3 { grid-template-columns: repeat(3, 1fr); gap: 36px; } }
+  .paso { border-top: 2px solid var(--acento); padding-top: 22px; }
+  .paso .etapa {
+    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--acento); display: block; margin-bottom: 12px;
+  }
+  .paso h3 { margin-bottom: 10px; font-size: 1.3rem; }
+  .paso p { font-size: 0.97rem; color: var(--tinta-suave); }
+
+  .franja {
+    margin-top: 52px;
+    background: var(--rosa-suave);
+    border-radius: 12px;
+    padding: 32px 30px;
+    font-family: var(--mano);
+    font-size: clamp(1.4rem, 3.6vw, 1.85rem);
+    line-height: 1.3;
+    color: var(--acento);
+    text-align: center;
+  }
+
+  /* ---- la banda de Fer ---- */
+  .fer-grid { display: grid; gap: 32px; align-items: center; }
+  @media (min-width: 860px) { .fer-grid { grid-template-columns: 1fr 1fr; gap: 48px; } }
+  .fer-grid .kicker { color: var(--rosa); }
+  .fer-grid h2 { color: var(--crema); margin-bottom: 22px; }
+  .fer-grid p { color: var(--rosa-suave); }
+  .fer-grid .fer-nombre {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(5rem, 18vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--rosa);
+    text-align: right;
+    margin: 0;
+  }
+  @media (max-width: 859px) { .fer-grid .fer-nombre { text-align: left; } }
+  .fer-grid .fer-firma {
+    font-family: var(--mano);
+    font-size: clamp(1.4rem, 3.6vw, 1.8rem);
+    line-height: 1.3;
+    color: var(--vainilla);
+    margin-top: 26px;
+  }
+
+  /* ---- cajas numeradas (incluye) ---- */
+  .cajas { display: grid; gap: 18px; margin-top: 44px; }
+  @media (min-width: 620px) { .cajas { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .cajas { grid-template-columns: repeat(4, 1fr); } }
+  .caja {
+    border: 1px solid var(--linea);
+    border-radius: 12px;
+    padding: 28px 26px;
+    background: var(--papel);
+  }
+  .caja .nro {
+    font-family: var(--display); font-weight: 700; font-size: 1.05rem;
+    color: var(--acento); display: block; margin-bottom: 16px;
+  }
+  .caja p { font-weight: 700; margin: 0; }
+
+  /* ---- para quién ---- */
+  .duo { display: grid; gap: 20px; margin-top: 44px; }
+  @media (min-width: 760px) { .duo { grid-template-columns: 1fr 1fr; } }
+  .panel { border-radius: 14px; padding: 30px 28px; }
+  .panel--si { background: var(--papel); border: 2px solid var(--acento); }
+  .panel--no { background: var(--papel); border: 1px solid var(--linea); }
+  .panel h3 { font-size: 1.3rem; margin-bottom: 18px; }
+  .panel ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .panel li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; font-size: 0.97rem; }
+  .panel--si li::before { content: "✓"; color: var(--acento); font-weight: 700; }
+  .panel--no li::before { content: "—"; color: var(--tinta-suave); }
+
+  /* ---- resultados ---- */
+  .resultados { display: grid; gap: 0; margin-top: 44px; }
+  @media (min-width: 800px) { .resultados { grid-template-columns: 1fr 1fr; column-gap: 56px; } }
+  .resultado { border-top: 1px solid var(--linea); padding: 24px 0; }
+  .resultado .nro {
+    font-family: var(--display); font-weight: 700; font-size: 0.9rem;
+    color: var(--acento); display: block; margin-bottom: 8px;
+  }
+  .resultado p { margin: 0; }
+
+  /* ---- oferta ---- */
+  .caja-precio { text-align: center; margin-top: 36px; }
+  .precio {
+    font-family: var(--display); font-weight: 700;
+    color: var(--acento);
+    font-size: clamp(3rem, 12vw, 5rem); line-height: 1;
+    letter-spacing: -0.03em; margin: 0 0 18px;
+    font-variant-numeric: tabular-nums;
+  }
+  .precio-datos { font-size: 1.02rem; margin: 0 0 6px; }
+  .incluye { font-size: 1.02rem; color: var(--tinta-suave); margin: 0; }
+
+  /* ---- FAQ ---- */
+  .faq { margin-top: 40px; }
+  details {
+    border-top: 1px solid var(--linea);
+    padding: 22px 0;
+  }
+  details:last-child { border-bottom: 1px solid var(--linea); }
+  summary {
+    font-family: var(--display); font-weight: 600; font-size: 1.08rem;
+    cursor: pointer; list-style: none; display: flex;
+    justify-content: space-between; align-items: center; gap: 16px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--acento); font-size: 1.5rem; font-family: var(--texto); flex: none; line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 14px 0 0; font-size: 0.98rem; color: var(--tinta-suave); max-width: 46em; }
+  summary:focus-visible { outline: 3px solid var(--acento); outline-offset: 4px; border-radius: 4px; }
+
+  /* ---- cierre ---- */
+  .cierre { text-align: center; }
+  .cierre h2 { color: var(--crema); }
+  .cierre .datos { justify-content: center; color: var(--rosa); }
+  .cierre .datos li::before { background: var(--rosa); }
+  .cierre .cta { background: var(--crema); color: var(--tinta); }
+  .cierre .cta:hover { background: var(--rosa); }
+  .cierre .cta:focus-visible { outline-color: var(--rosa); }
+  .firma {
+    font-family: var(--mano); font-size: 1.5rem; color: var(--rosa);
+    margin-top: 40px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · HERO ============ -->
+<header class="banda banda--crema hero">
+  <div class="envase--ancho hero-grid">
+    <div>
+      <p class="kicker">Workshop online en vivo</p>
+      <h1>Que no te falten <span class="marca">las lucas</span></h1>
+      <p class="bajada" style="margin-top:24px">
+        En menos de 2 horas te ayudo a ordenar tus números para saber cuánto necesitas,
+        qué puedes ajustar, cuánto gastas y cómo hacer espacio a fin de mes.
+      </p>
+      <ul class="datos">
+        <li>Lunes 2 de noviembre</li>
+        <li>20:00 hrs (hora Chile)</li>
+        <li>Online vía Zoom</li>
+      </ul>
+      <div class="bloque-cta">
+        <a class="cta" href="#inscripcion">Quiero mi cupo →</a>
+        <p class="chica">Cupos limitados</p>
+      </div>
+    </div>
+    <div class="hero-foto">
+      <img src="img/fer-hero.jpg" alt="Fer, dentista y creadora de PrimeroFer">
+    </div>
+  </div>
+</header>
+
+<!-- ============ 2 · ¿TE PASA ALGO DE ESTO? ============ -->
+<section class="banda banda--papel">
+  <div class="envase--ancho">
+    <div class="dos-col">
+      <div>
+        <p class="kicker">¿Te pasa algo de esto?</p>
+        <h2>La plata entra, pero no sabes bien a dónde se va.</h2>
+        <p class="bajada" style="margin-top:24px">
+          Quizás llegas justa a fin de mes. O te sobra algo, pero al mes siguiente ya no está.
+        </p>
+      </div>
+      <ul class="lista-lineas">
+        <li>Hay gastos que se repiten y otros que siempre te pillan de sorpresa.</li>
+        <li>Has intentado hacer un presupuesto, pero no logras mantenerlo.</li>
+        <li>Te cuestionas pequeños gustos sin saber si ahí está el problema.</li>
+        <li>Quieres ahorrar, pero ahorras lo que queda. Y lo que queda el día 30 es cero.</li>
+        <li>Marzo te pilla todos los años. Y todos los años te prometes que el próximo no.</li>
+        <li>Quieres ordenar los gastos de tu casa sin dejar de disfrutarlo todo.</li>
+      </ul>
+    </div>
+    <p class="remate">
+      No necesitas adivinar dónde recortar.
+      <span>Necesitas mirar tus números reales.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ 3 · CÓMO TRABAJAMOS ============ -->
+<section class="banda banda--crema">
+  <div class="envase--ancho">
+    <p class="kicker">Un taller para trabajar, no solo escuchar</p>
+    <h2>Lo haremos con tu propio presupuesto.</h2>
+    <p class="bajada" style="margin-top:22px">
+      Tendrás una planilla abierta durante el workshop. No necesitas contar cuánto ganas
+      ni mostrar tus datos: cada persona trabaja en privado con sus cifras.
+    </p>
+
+    <div class="pasos3">
+      <div class="paso">
+        <span class="etapa">01 / Entender</span>
+        <h3>Vemos tu realidad</h3>
+        <p>Ordenas lo que entra y clasificas tus gastos para saber cuánto necesita tu casa cada mes.</p>
+      </div>
+      <div class="paso">
+        <span class="etapa">02 / Decidir</span>
+        <h3>Encuentras qué mover</h3>
+        <p>Identificas qué gastos puedes ajustar ahora, cuánto puedes recortar de cada uno, cuáles requieren una revisión y qué decisiones dependen de tus objetivos.</p>
+      </div>
+      <div class="paso">
+        <span class="etapa">03 / Aplicar</span>
+        <h3>Armas tu presupuesto</h3>
+        <p>Defines cuánto sale, de dónde sale, cuánto destinas a tu meta y una revisión mensual breve para sostener el orden.</p>
+      </div>
+    </div>
+
+    <p class="franja">
+      La idea no es quitarte todos tus gustos. Es saber cuánto puedes destinar a cada cosa con tranquilidad.
+    </p>
+  </div>
+</section>
+
+<!-- ============ 4 · QUIÉN TE ACOMPAÑA ============ -->
+<section class="banda banda--tinta">
+  <div class="envase--ancho fer-grid">
+    <div>
+      <p class="kicker">Quién te acompaña</p>
+      <h2>Hola, soy Fer.</h2>
+      <p>
+        Soy mamá, dentista, socia de una clínica y creadora de contenido. Empecé a compartir cómo fui
+        ordenando mis gastos personales y familiares después de darme cuenta de que, aunque sabía
+        gestionar las finanzas de mi negocio, mi casa necesitaba su propio sistema.
+      </p>
+      <p>
+        En este taller te voy a enseñar el proceso práctico que me ayudó a mirar los números de otra
+        forma y a tomar mejores decisiones con mi presupuesto.
+      </p>
+      <p class="fer-firma">Porque me gusta que cada peso que gasto tenga sentido.</p>
+    </div>
+    <p class="fer-nombre">Fer.</p>
+  </div>
+</section>
+
+<!-- ============ 5 · TU INSCRIPCIÓN INCLUYE ============ -->
+<section class="banda banda--crema">
+  <div class="envase--ancho">
+    <p class="kicker">Tu inscripción incluye</p>
+    <h2>Herramientas para usar desde el primer día.</h2>
+    <div class="cajas">
+      <div class="caja">
+        <span class="nro">01</span>
+        <p>Workshop en vivo por Zoom</p>
+      </div>
+      <div class="caja">
+        <span class="nro">02</span>
+        <p>Planilla de presupuesto</p>
+      </div>
+      <div class="caja">
+        <span class="nro">03</span>
+        <p>Planificador anual</p>
+      </div>
+      <div class="caja">
+        <span class="nro">04</span>
+        <p>Checklist mensual y guía de hábitos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 · ¿ES PARA TI? ============ -->
+<section class="banda banda--papel">
+  <div class="envase--ancho">
+    <p class="kicker">Antes de inscribirte</p>
+    <h2>¿Es para ti?</h2>
+    <div class="duo">
+      <div class="panel panel--si">
+        <h3>Te puede servir si…</h3>
+        <ul>
+          <li><span>Quieres ordenar tu presupuesto personal o familiar.</span></li>
+          <li><span>No tienes claro cuánto necesita tu casa cada mes.</span></li>
+          <li><span>Quieres que tu dinero alcance y quede espacio para tus objetivos.</span></li>
+        </ul>
+      </div>
+      <div class="panel panel--no">
+        <h3>Este taller no aborda…</h3>
+        <ul>
+          <li><span>Reestructuración o renegociación de deudas complejas.</span></li>
+          <li><span>Estrategias para invertir.</span></li>
+          <li><span>Una solución automática: trabajaremos con tus propios números y decisiones.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 · TE LLEVAS ============ -->
+<section class="banda banda--crema">
+  <div class="envase--ancho">
+    <p class="kicker">Al terminar el workshop</p>
+    <h2>Te llevas un presupuesto listo.</h2>
+    <div class="resultados">
+      <div class="resultado">
+        <span class="nro">01</span>
+        <p>Tu número base: cuánto necesita tu casa para cubrir sus gastos.</p>
+      </div>
+      <div class="resultado">
+        <span class="nro">02</span>
+        <p>Un diagnóstico de cómo se distribuye hoy tu dinero.</p>
+      </div>
+      <div class="resultado">
+        <span class="nro">03</span>
+        <p>Una lista concreta de gastos que puedes revisar y ajustar.</p>
+      </div>
+      <div class="resultado">
+        <span class="nro">04</span>
+        <p>Tu presupuesto con un monto para tu meta y una fecha de revisión mensual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 · RESERVA TU CUPO ============ -->
+<section class="banda banda--rosa" id="inscripcion">
+  <div class="envase" style="text-align:center">
+    <p class="kicker">Reserva tu cupo</p>
+    <h2>Empecemos con tus números.</h2>
+    <div class="caja-precio">
+      <p class="precio">$37.000 CLP</p>
+      <p class="precio-datos">Lunes 2 de noviembre · 20:00 h (Chile) · En vivo por Zoom</p>
+      <p class="incluye">
+        Incluye el workshop en vivo, la planilla de presupuesto, el planificador anual y el checklist mensual.
+        La grabación queda disponible por 6 meses.
+      </p>
+      <div class="bloque-cta">
+        <a class="cta" href="LINK-DE-PAGO-FLYCREW">Quiero mi cupo →</a>
+        <p class="chica">Cupos limitados · El acceso a Zoom se enviará por correo un día antes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 · PREGUNTAS ============ -->
+<section class="banda banda--papel">
+  <div class="envase--ancho">
+    <p class="kicker">Para decidir con tranquilidad</p>
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq">
+      <details>
+        <summary>¿Cuándo y dónde es?</summary>
+        <p>El lunes 2 de noviembre a las 20:00 h (hora de Chile), online y en vivo por Zoom.</p>
+      </details>
+      <details>
+        <summary>¿Cómo recibiré el acceso?</summary>
+        <p>Recibirás el enlace para entrar a Zoom en tu correo un día antes del workshop.</p>
+      </details>
+      <details>
+        <summary>¿Tengo que compartir mis ingresos o gastos?</summary>
+        <p>No. Trabajarás en tu propia planilla y tus cifras son privadas.</p>
+      </details>
+      <details>
+        <summary>¿Qué necesito para participar?</summary>
+        <p>Un computador o celular con acceso a Zoom, y disposición para revisar tus números en la planilla.</p>
+      </details>
+      <details>
+        <summary>¿Es una asesoría para resolver deudas?</summary>
+        <p>No. El foco es ordenar tu presupuesto personal o familiar. La renegociación de deudas queda fuera del taller.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 · CIERRE ============ -->
+<footer class="banda banda--tinta cierre">
+  <div class="envase">
+    <h2>Que no te falten las lucas</h2>
+    <ul class="datos">
+      <li>Lunes 2 de noviembre de 2026</li>
+      <li>20:00 hrs (hora Chile)</li>
+      <li>En vivo por Zoom</li>
+    </ul>
+    <div class="bloque-cta">
+      <a class="cta" href="LINK-DE-PAGO-FLYCREW">Quiero mi cupo →</a>
+    </div>
+    <p class="firma">Que cada peso que gastes tenga sentido.</p>
+  </div>
+</footer>
+
+</body>
+</html>
